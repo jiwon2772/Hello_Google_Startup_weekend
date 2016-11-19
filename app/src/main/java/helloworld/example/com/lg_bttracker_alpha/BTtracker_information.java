@@ -169,23 +169,8 @@ package helloworld.example.com.lg_bttracker_alpha;
 
         // Device scan callback.
         private BluetoothAdapter.LeScanCallback mLeScanCallback = new BluetoothAdapter.LeScanCallback() {
-
             @Override
             public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        if(!mScanning) {
-//                            //backgroundTask.cancel(true);
-//                        } else {
-//                            if(device.getAddress().equals(mDeviceAddress) && !isDoing) {
-////                                backgroundTask = new BackgroundTask();
-////                                backgroundTask.execute(device.getAddress());
-//                                startActivity(new Intent(this, AlarmActivity.class));
-//                            }
-//                        }
-//                    }
-//                });
                 runOnUiThread(new Runnable() {
 
                     @Override

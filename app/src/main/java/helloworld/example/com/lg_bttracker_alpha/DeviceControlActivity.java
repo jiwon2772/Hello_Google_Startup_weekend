@@ -36,7 +36,7 @@ public class DeviceControlActivity extends Activity {
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";
     public static final String EXTRAS_DEVICE_ADDRESS = "DEVICE_ADDRESS";
 
-    final static String dbName = "alpha2.db"; //내가 지정한 database 이름.
+    final static String dbName = "c.db"; //내가 지정한 database 이름.
     final static int dbVersion = 1;
     private DBHelper dbHelper;
     private SQLiteDatabase db;

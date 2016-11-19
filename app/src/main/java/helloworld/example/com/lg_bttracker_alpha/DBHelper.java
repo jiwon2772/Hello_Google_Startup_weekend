@@ -17,7 +17,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // BTtracker를 기록함.
         sql =  "create table BTtrackers (_id integer primary key autoincrement," +
-                "device_name text not null, device_address text not null);";
+                "device_name text not null, device_address text not null, status text not null);";
 
         db.execSQL(sql);
 

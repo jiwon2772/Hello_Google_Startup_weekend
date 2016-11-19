@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="color_preloader_start">#000000</color>
+    <color name="color_preloader_center">#FF434040</color>
+    <color name="color_preloader_end">#FFA0E89D</color>
 </resources>

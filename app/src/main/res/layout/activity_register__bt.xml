@@ -2,21 +2,74 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#ffffff">
-    <ImageButton
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:onClick="registerBT"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/add_problem"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp" />
-    <ListView
-        android:id="@+id/list"
+    android:background="#567ab6"
+    android:orientation="vertical">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="410dp"
-        android:layout_margin="5dp"
-        android:background="#F2F0F1" />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/hello_log"
+            android:id="@+id/imageView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_toEndOf="@+id/imageView" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="100dp"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:indeterminateDrawable="@drawable/progress" >
+    </ProgressBar>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/plus"
+        android:onClick="registerBT"
+        android:id="@+id/plusBtn"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please Register Device"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:id="@+id/nameLocation"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MacAddress"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:id="@+id/addressLocation"/>
 
 </LinearLayout>

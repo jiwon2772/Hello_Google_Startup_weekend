@@ -1,7 +1,6 @@
 package helloworld.example.com.lg_bttracker_alpha;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
@@ -11,8 +10,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.Handler;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +43,8 @@ public class Register_BT extends ListActivity {
 
     private static final UUID specialUUID =uuidFromShortCode16("8BDA");
 
+    public Activity before;
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -68,6 +69,7 @@ public class Register_BT extends ListActivity {
         super.onCreate(savedInstanceState);
         mHandler = new Handler();
 
+        before=this;
         // Use this check to determine whether BLE is supported on the device.  Then you can
         // selectively disable BLE-related features.
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
@@ -217,13 +219,14 @@ public class Register_BT extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
         if (device == null) return;
-        final Intent intent = new Intent(this, DeviceControlActivity.class);
-        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_NAME, device.getName());
-        intent.putExtra(DeviceControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());
+        final Intent intent = new Intent(this, SetDevice.class);
+        intent.putExtra("deviceAddress", device.getAddress());
+        intent.putExtra("deviceName", device.getName());
         if (mScanning) {
             mBluetoothAdapter.stopLeScan(mLeScanCallback);
             mScanning = false;
         }
         startActivity(intent);
+        finish();
     }
 }

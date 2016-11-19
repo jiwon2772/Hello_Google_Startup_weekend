@@ -1,6 +1,8 @@
 package helloworld.example.com.lg_bttracker_alpha;
 
+import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Instrumentation;
 import android.content.ComponentName;
 import android.content.Context;
 import android.media.AudioManager;
@@ -24,14 +26,12 @@ public class AlarmActivity extends AppCompatActivity {
     int currVol;
     int maxVol;
     Context context;
-    private Button find;
+    Button find;
     PlayMusic backgroundTask;
-    Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
-        handler = new Handler(getMainLooper());
         find = (Button)findViewById(R.id.find);
        //음악 재생
         backgroundTask = new PlayMusic();
@@ -100,7 +100,7 @@ public class AlarmActivity extends AppCompatActivity {
             if(result == 1) {
                 Log.d("playing music : ", "no reply");
                 am.setStreamVolume(AudioManager.STREAM_MUSIC, currVol, AudioManager.FLAG_PLAY_SOUND);
-                setResult(222);
+                setResult(Activity.RESULT_OK);
                 finish();
             }
         }
@@ -108,5 +108,10 @@ public class AlarmActivity extends AppCompatActivity {
         protected void onCancelled() {
         }
     } // end of AsyncTask
+
+    public void onStop(){
+        mp.stop();
+        super.onStop();
+    }
 
 }
